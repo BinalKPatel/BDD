@@ -6,7 +6,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = {"C:\\Selenium_WorkSpace\\BDD\\src\\main\\java\\feature\\contacts.feature"},//the path of feature folder or feature class
+		features = {"C:\\Selenium_WorkSpace\\BDD\\src\\main\\java\\feature\\deals.feature"},//the path of feature folder or feature class
 		glue = {"stepDefination"},//path of step defination file
 		plugin = {"pretty","html:test-output"},
 		//plugin = {"json:json_output/cucumber.json" ,"junit:junit_xml/cucumber.xml" }

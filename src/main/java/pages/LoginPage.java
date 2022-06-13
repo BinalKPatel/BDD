@@ -21,8 +21,12 @@ public class LoginPage {
 	WebElement login;
 	@FindBy(xpath = "//a[contains(text(),'Contacts')]")
 	WebElement contactsLink;
+	@FindBy(xpath = "//a[contains(text(),'Deals')]")
+	WebElement DealLink;
 	@FindBy(xpath = "//a[contains(text(),'New Contact')]")
 	WebElement newContactLink;
+	@FindBy(xpath = "//a[contains(text(),'New Deal')]")
+	WebElement newDealLink;
 	@FindBy(xpath = "//select[@name='title']")
 	WebElement selectTitle;
 	
@@ -37,6 +41,17 @@ public class LoginPage {
 	
 	@FindBy(xpath = "//input[@type='submit' and @value='Save']")
 	WebElement saveBtn;
+	@FindBy(name = "title")
+	WebElement title;
+	@FindBy(name = "amount")
+	WebElement amnt ;
+	@FindBy(name = "probability")
+	WebElement pbr;
+	@FindBy(name = "commission")
+	WebElement cms;
+	
+	
+	
 	
 	
 	
@@ -84,4 +99,19 @@ public class LoginPage {
 		company.sendKeys(comp);
 		saveBtn.click();
 	}
+	public void DealPage_Test() {
+		driver.switchTo().frame("mainpanel");
+		Actions action = new Actions(driver);
+		action.moveToElement(DealLink).build().perform();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("arguments[0].click();",newDealLink);
+	}
+	public void createDeal(String a,String b , String c , String d) {
+		title.sendKeys(a);
+		amnt.sendKeys(b);
+		pbr.sendKeys(c);
+		cms.sendKeys(d);
+		driver.findElement(By.xpath("//input[@type='submit']"));
+	}
+	
 }
